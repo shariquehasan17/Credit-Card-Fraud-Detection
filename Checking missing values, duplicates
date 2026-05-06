@@ -1,0 +1,9 @@
+#EDA
+print(f'Rows         : {df.shape[0]}')
+print(f'Columns      : {df.shape[1]}')
+print(f'Missing vals : {df.isnull().sum().sum()}')
+print(f'Duplicates   : {df.duplicated().sum()}')
+
+fraud_count = df['Class'].value_counts()
+print(f'\nNon-Fraud: {fraud_count[0]:,} ({fraud_count[0]/len(df)*100:.2f}%)')
+print(f'Fraud    : {fraud_count[1]:,} ({fraud_count[1]/len(df)*100:.2f}%)')
