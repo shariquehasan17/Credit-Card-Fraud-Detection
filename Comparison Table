@@ -1,0 +1,15 @@
+results = pd.DataFrame({
+    'Model':     ['Logistic Regression','Random Forest','Neural Network (ANN)'],
+    'Accuracy':  [lr_acc,  rf_acc,  ann_acc],
+    'Precision': [lr_prec, rf_prec, ann_prec],
+    'Recall':    [lr_rec,  rf_rec,  ann_rec],
+    'F1-Score':  [lr_f1,   rf_f1,   ann_f1]
+}).set_index('Model').round(4)
+
+print('='*65)
+print('            MODEL COMPARISON TABLE')
+print('='*65)
+print(results.to_string())
+print('='*65)
+best = results['F1-Score'].idxmax()
+print(f'\nBest Model: {best} (F1={results.loc[best,"F1-Score"]:.4f}')
